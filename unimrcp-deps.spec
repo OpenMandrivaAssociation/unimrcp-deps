@@ -24,11 +24,13 @@ BuildRequires:  automake
 %package -n %{libs}
 Summary: UniMRCP depends Stack shared librarries
 Group: System/Libraries
+Provides: %{name} = %{version}-%{release}
 
 %package -n %{devel}
 Summary: UniMRCP depends Stack development
 Group: Development/C
-Requires: libunimrcp-deps = %version-%release
+Provides: %{name}-devel = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}, pkgconfig
 
 %description
 UniMRCP depends on a number of third party tools and libraries, which are required and must be installed first.
