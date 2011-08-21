@@ -3,8 +3,8 @@
 %define libs %mklibname %{name}
 
 Name: %{name}
-Version: 1.0.2
-Release: %mkrel 3
+Version: 1.1.0
+Release: %mkrel 0
 
 Summary: Media Resource Control Protocol Stack
 License: Apache
@@ -13,7 +13,6 @@ Url: http://unimrcp.org
 BuildRoot: %{_tmppath}/%{name}-%{version}
 
 Source: http://unimrcp.googlecode.com/files/%{name}-%{version}.tar.gz
-Patch0: sofia-sip-1.12.10-undefined-non-weak-symbol.patch
 
 BuildRequires:  glib2-devel
 BuildRequires:  libopenssl-devel
@@ -49,8 +48,6 @@ can be downloaded from http://www.unimrcp.org/dependencies/
 
 %prep
 %setup -q
-cd libs/sofia-sip
-%patch0 -p0 -b .weak-symbol
 
 %build
 cd libs/apr
@@ -97,7 +94,7 @@ cd ../sofia-sip
 %makeinstall_std
 
 %clean
-rm -fr %{buildroot}
+[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
 %files -n %{libs}
 %defattr(-,root,root)
