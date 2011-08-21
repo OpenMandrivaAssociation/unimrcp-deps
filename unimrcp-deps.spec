@@ -48,7 +48,7 @@ can be downloaded from http://www.unimrcp.org/dependencies/
 
 %prep
 %setup -q
-perl -pi -w -e 's/pathcomp=\"\$path/pathcomp=\"\$DESTDIR\$path/' libs/apr-util/xml/expat/conftools/mkinstalldirs
+perl -pi -w -e 's/pathcomp=$/pathcomp=\$DESTDIR/' libs/apr-util/xml/expat/conftools/mkinstalldirs
 
 %build
 cd libs/apr
