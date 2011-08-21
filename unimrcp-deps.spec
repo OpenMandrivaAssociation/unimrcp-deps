@@ -14,6 +14,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}
 
 Source: http://unimrcp.googlecode.com/files/%{name}-%{version}.tar.gz
 
+BuildRequires:  expat-devel
 BuildRequires:  glib2-devel
 BuildRequires:  libopenssl-devel
 BuildRequires:  pkgconfig
@@ -48,7 +49,6 @@ can be downloaded from http://www.unimrcp.org/dependencies/
 
 %prep
 %setup -q
-perl -pi -w -e 's/pathcomp=$/pathcomp=\$DESTDIR/' libs/apr-util/xml/expat/conftools/mkinstalldirs
 
 %build
 cd libs/apr
