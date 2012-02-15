@@ -1,10 +1,11 @@
+%define __find_provides %{nil}
 %define name unimrcp-deps
 %define devel %mklibname %{name} -d
 %define libs %mklibname %{name}
 
 Name: %{name}
 Version: 1.1.0
-Release: %mkrel 0
+Release: %mkrel 1
 
 Summary: Media Resource Control Protocol Stack
 License: Apache
