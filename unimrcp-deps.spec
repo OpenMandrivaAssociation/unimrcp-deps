@@ -37,18 +37,21 @@ Provides: lib%{name}-devel = %{version}-%{release}
 Requires: lib%{name} = %{version}-%{release}, pkgconfig
 
 %description
-UniMRCP depends on a number of third party tools and libraries, which are required and must be installed first.
-Alternatively, the original packages of APR, APR-Util and Sofia-SIP libraries and patches for them
+UniMRCP depends on a number of third party tools and libraries, which are
+required and must be installed first. Alternatively, the original packages
+of APR, APR-Util and Sofia-SIP libraries and patches for them
 can be downloaded from http://www.unimrcp.org/dependencies/
 
 %description -n %{libs}
-UniMRCP depends on a number of third party tools and libraries, which are required and must be installed first.
-Alternatively, the original packages of APR, APR-Util and Sofia-SIP libraries and patches for them
+UniMRCP depends on a number of third party tools and libraries, which are
+required and must be installed first. Alternatively, the original packages
+of APR, APR-Util and Sofia-SIP libraries and patches for them
 can be downloaded from http://www.unimrcp.org/dependencies/
 
 %description -n %{devel}
-UniMRCP depends on a number of third party tools and libraries, which are required and must be installed first.
-Alternatively, the original packages of APR, APR-Util and Sofia-SIP libraries and patches for them
+UniMRCP depends on a number of third party tools and libraries, which are
+required and must be installed first. Alternatively, the original packages
+of APR, APR-Util and Sofia-SIP libraries and patches for them
 can be downloaded from http://www.unimrcp.org/dependencies/
 
 %prep
