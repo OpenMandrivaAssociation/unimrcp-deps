@@ -11,7 +11,10 @@ Summary: Media Resource Control Protocol Stack
 License: Apache
 Group: System/Libraries
 Url: http://unimrcp.org
+
+%if %mdkversion < 201100
 BuildRoot: %{_tmppath}/%{name}-%{version}
+%endif
 
 Source: http://unimrcp.googlecode.com/files/%{name}-%{version}.tar.gz
 
