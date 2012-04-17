@@ -2,6 +2,7 @@
 %define name unimrcp-deps
 %define devel %mklibname %{name} -d
 %define libs %mklibname %{name}
+%define subrel 1
 
 Name: %{name}
 Version: 1.1.0
