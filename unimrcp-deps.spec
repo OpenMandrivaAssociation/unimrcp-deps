@@ -1,41 +1,39 @@
+%if %{_use_internal_dependency_generator}
+%define __noautoprov '(.*)apr(.*)|(.*)sofia(.*)'
+%else
 %define __find_provides %{nil}
-%define name unimrcp-deps
-%define devel %mklibname %{name} -d
-%define libs %mklibname %{name}
-%define subrel 1
-
-Name: %{name}
-Version: 1.1.0
-Release: %mkrel 1
-
-Summary: Media Resource Control Protocol Stack
-License: Apache
-Group: System/Libraries
-Url: http://unimrcp.org
-
-%if %mdkversion < 201100
-BuildRoot: %{_tmppath}/%{name}-%{version}
 %endif
 
-Source: http://unimrcp.googlecode.com/files/%{name}-%{version}.tar.gz
+%define devel %mklibname %{name} -d
+%define libs %mklibname %{name}
 
-BuildRequires:  expat-devel
-BuildRequires:  glib2-devel
-BuildRequires:  libopenssl-devel
-BuildRequires:  pkgconfig
-BuildRequires:  autoconf
-BuildRequires:  automake
+Name:		unimrcp-deps
+Version:	1.1.0
+Release:	2
+
+Summary:	Media Resource Control Protocol Stack
+License:	Apache
+Group:		System/Libraries
+Url:		http://unimrcp.org
+
+Source:		http://unimrcp.googlecode.com/files/%{name}-%{version}.tar.gz
+
+BuildRequires:	pkgconfig(expat)
+BuildRequires:	pkgconfig(glib-2.0)
+BuildRequires:	pkgconfig(openssl)
+BuildRequires:	autoconf
+BuildRequires:	automake
 
 %package -n %{libs}
-Summary: UniMRCP depends Stack shared librarries
-Group: System/Libraries
-Provides: lib%{name} = %{version}-%{release}
+Summary:	UniMRCP depends Stack shared librarries
+Group:		System/Libraries
+Provides:	lib%{name} = %{version}-%{release}
 
 %package -n %{devel}
-Summary: UniMRCP depends Stack development
-Group: Development/C
-Provides: lib%{name}-devel = %{version}-%{release}
-Requires: lib%{name} = %{version}-%{release}, pkgconfig
+Summary:	UniMRCP depends Stack development
+Group:		Development/C
+Provides:	lib%{name}-devel = %{version}-%{release}
+Requires:	lib%{name} = %{version}-%{release}
 
 %description
 UniMRCP depends on a number of third party tools and libraries, which are
@@ -92,7 +90,6 @@ automake --gnu --force-missing --add-missing
 %make
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 install -d -m1775 %{buildroot}%{_datadir}/%{name}
 
 cd libs/apr
@@ -102,16 +99,49 @@ cd ../apr-util
 cd ../sofia-sip
 %makeinstall_std
 
-%clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
 %files -n %{libs}
-%defattr(-,root,root)
 %{_datadir}/%{name}/lib
 
 %files -n %{devel}
-%defattr(-,root,root)
 %{_datadir}/%{name}/include
 %{_datadir}/%{name}/build-1
 %{_datadir}/%{name}/bin
 %{_datadir}/%{name}/sofia-sip
+
+
+%changelog
+* Thu Feb 16 2012 Denis Silakov <dsilakov@mandriva.org> 1.1.0-1mdv2012.0
++ Revision: 775094
+- Reformat description to shorten lines
+
+  + zamir <zamir@mandriva.org>
+    - search build error
+    - clear provides
+
+* Sun Aug 21 2011 zamir <zamir@mandriva.org> 1.1.0-0
++ Revision: 695980
+- may be need expat source?.. try
+- try again
+- try again
+- try fix script creating dir
+- build new pkg version
+
+* Mon Feb 28 2011 Funda Wang <fwang@mandriva.org> 1.0.2-3
++ Revision: 640872
+- rebuild
+
+* Sat Feb 12 2011 zamir <zamir@mandriva.org> 1.0.2-2
++ Revision: 637390
+- change depend
+- fixed requires
+
+* Fri Feb 11 2011 zamir <zamir@mandriva.org> 1.0.2-1
++ Revision: 637315
+- changed provide information
+- changed provide information
+
+* Fri Feb 11 2011 zamir <zamir@mandriva.org> 1.0.2-0
++ Revision: 637269
+- first build
+- create unimrcp-deps
+
