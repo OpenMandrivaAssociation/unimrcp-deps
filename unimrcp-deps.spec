@@ -9,7 +9,7 @@
 
 Name:		unimrcp-deps
 Version:	1.1.0
-Release:	2
+Release:	3
 
 Summary:	Media Resource Control Protocol Stack
 License:	Apache
