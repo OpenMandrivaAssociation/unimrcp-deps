@@ -14,7 +14,7 @@ Release:	3
 Summary:	Media Resource Control Protocol Stack
 License:	Apache
 Group:		System/Libraries
-Url:		http://unimrcp.org
+Url:		https://unimrcp.org
 
 Source:		http://unimrcp.googlecode.com/files/%{name}-%{version}.tar.gz
 
