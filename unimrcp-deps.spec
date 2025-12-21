@@ -18,6 +18,8 @@ Url:		https://unimrcp.org
 
 Source:		http://unimrcp.googlecode.com/files/%{name}-%{version}.tar.gz
 
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:	pkgconfig(expat)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(openssl)
